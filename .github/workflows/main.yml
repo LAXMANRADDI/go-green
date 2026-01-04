@@ -1,0 +1,25 @@
+name: Daily Auto Commit
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # This runs every day at midnight
+  workflow_dispatch: # Allows you to run it manually for testing
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update Date File
+        run: |
+          date > last_run.txt
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "your-github-email@example.com"
+          git config --local user.name "LAXMANRADDI"
+          git add last_run.txt
+          git commit -m "Daily automated update"
+          git push
