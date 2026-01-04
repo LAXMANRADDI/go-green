@@ -1,9 +1,9 @@
-name: Daily Auto Commit
+name: 15 Daily Commits
 
 on:
   schedule:
-    - cron: '0 0 * * *' # This runs every day at midnight
-  workflow_dispatch: # Allows you to run it manually for testing
+    - cron: '0 0 * * *' # Runs once a day at 00:00 UTC
+  workflow_dispatch: # Allows manual testing
 
 jobs:
   build:
@@ -12,14 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Update Date File
+      - name: Make 15 Commits
         run: |
-          date > last_run.txt
-
-      - name: Commit and Push
-        run: |
-          git config --local user.email "159695664+LAXMANRADDI@users.noreply.github.com"
-          git config --local user.name "LAXMANRADDI"
-          git add last_run.txt
-          git commit -m "Daily automated update"
+          git config --local user.email ""
+          git config --local user.name "YourUsername"
+          
+          for i in {1..15}
+          do
+            echo "Commit number $i on $(date)" >> activity.txt
+            git add activity.txt
+            git commit -m "Automated commit $i of 15 for $(date +'%Y-%m-%d')"
+          done
+          
           git push
