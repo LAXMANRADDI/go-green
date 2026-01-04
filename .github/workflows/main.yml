@@ -18,7 +18,7 @@ jobs:
 
       - name: Commit and Push
         run: |
-          git config --local user.email "your-github-email@example.com"
+          git config --local user.email "159695664+LAXMANRADDI@users.noreply.github.com"
           git config --local user.name "LAXMANRADDI"
           git add last_run.txt
           git commit -m "Daily automated update"
