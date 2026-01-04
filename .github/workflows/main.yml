@@ -14,8 +14,10 @@ jobs:
 
       - name: Make 15 Commits
         run: |
-          git config --local user.email ""
-          git config --local user.name "YourUsername"
+          git config --local user.email "159695664+LAXMANRADDI@users.noreply.github.com.
+
+"
+          git config --local user.name "LAXMANRADDI"
           
           for i in {1..15}
           do
