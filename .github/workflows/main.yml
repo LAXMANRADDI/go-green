@@ -24,4 +24,4 @@ jobs:
             git commit -m "Automated commit $i of 15 for $(date +'%Y-%m-%d')"
           done
           
-          #git push
+          git push
